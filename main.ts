@@ -1,17 +1,37 @@
+function initVals () {
+    valueRed = 100
+    valueGreen = 100
+    valueBlue = 100
+    valueBrightness = 100
+}
 input.onButtonPressed(Button.A, function () {
     if (manualMode == 1) {
+        basic.showString("R")
         valueRed += -1 + manualValueChange
         valueRed = Math.constrain(valueRed, 0, 255)
     } else if (manualMode == 2) {
+        basic.showString("G")
         valueGreen += -1 + manualValueChange
         valueGreen = Math.constrain(valueGreen, 0, 255)
     } else if (manualMode == 3) {
+        basic.showString("B")
         valueBlue += -1 + manualValueChange
         valueBlue = Math.constrain(valueBlue, 0, 255)
     } else if (manualMode == 4) {
+        basic.showString("Br")
         valueBrightness += -1 + manualValueChange
         valueBrightness = Math.constrain(valueBrightness, 0, 255)
     }
+})
+input.onButtonPressed(Button.AB, function () {
+    basic.showLeds(`
+        # # # # #
+        # . # . #
+        # . # . #
+        . . . . .
+        . . . . .
+        `)
+    initVals()
 })
 input.onButtonPressed(Button.B, function () {
     if (manualMode == 1) {
@@ -45,12 +65,12 @@ input.onLogoEvent(TouchButtonEvent.Pressed, function () {
         manualMode = 1
     }
 })
-let manualValueChange = 0
-let manualMode = 0
 let valueBrightness = 0
 let valueBlue = 0
 let valueGreen = 0
 let valueRed = 0
+let manualValueChange = 0
+let manualMode = 0
 basic.showLeds(`
     # # # # #
     # . # . #
@@ -60,10 +80,7 @@ basic.showLeds(`
     `)
 radio.setGroup(200)
 let tileDisplay = Kitronik_Zip_Tile.createZIPTileDisplay(1, 1, Kitronik_Zip_Tile.UBitLocations.Visible)
-valueRed = 10
-valueGreen = 10
-valueBlue = 10
-valueBrightness = 50
+initVals()
 manualMode = 1
 manualValueChange = 10
 basic.forever(function () {
