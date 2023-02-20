@@ -13,6 +13,13 @@ let valueBrightness = 0
 let valueBlue = 0
 let valueGreen = 0
 let valueRed = 0
+basic.showLeds(`
+    # # # # #
+    # . # . #
+    # . # . #
+    . . . . .
+    . . . . .
+    `)
 radio.setGroup(200)
 let tileDisplay = Kitronik_Zip_Tile.createZIPTileDisplay(1, 1, Kitronik_Zip_Tile.UBitLocations.Visible)
 valueRed = 10
