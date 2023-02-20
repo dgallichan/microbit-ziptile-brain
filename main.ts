@@ -1,8 +1,8 @@
 function initVals () {
-    valueRed = 100
-    valueGreen = 100
-    valueBlue = 100
-    valueBrightness = 100
+    valueRed = 0
+    valueGreen = 0
+    valueBlue = 0
+    valueBrightness = 0
 }
 input.onButtonPressed(Button.A, function () {
     if (manualMode == 1) {
