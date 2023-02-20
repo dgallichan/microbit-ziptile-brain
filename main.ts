@@ -18,7 +18,13 @@ input.onButtonPressed(Button.A, function () {
         valueBlue += -1 + manualValueChange
         valueBlue = Math.constrain(valueBlue, 0, 255)
     } else if (manualMode == 4) {
-        basic.showString("Br")
+        basic.showLeds(`
+            # . # . #
+            # . # . #
+            # . # . #
+            # # # # #
+            . . . . .
+            `)
         valueBrightness += -1 + manualValueChange
         valueBrightness = Math.constrain(valueBrightness, 0, 255)
     }
